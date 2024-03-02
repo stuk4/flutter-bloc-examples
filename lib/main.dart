@@ -15,7 +15,7 @@ class BlocsProviders extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
-      BlocProvider(create: (context) => getIt<UsernameCubit>(), lazy: false),
+      BlocProvider(create: (context) => getIt<UsernameCubit>(), lazy: true),
       BlocProvider(
         create: (context) => getIt<RouterSimpleCubit>(),
       ),
@@ -28,6 +28,12 @@ class BlocsProviders extends StatelessWidget {
       ),
       BlocProvider(
         create: (context) => getIt<PokemonBloc>(),
+      ),
+      BlocProvider(
+        create: (context) => getIt<GeolocationCubit>(),
+      ),
+      BlocProvider(
+        create: (context) => getIt<HistoricLocationBloc>(),
       ),
     ], child: const MyApp());
   }
